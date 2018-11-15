@@ -34,7 +34,7 @@
 
 	</dependencies>
 	<build>
-		<finalName></finalName>
+		<finalName>1</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -42,7 +42,9 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-					<parameters>true</parameters>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
 				</configuration>
 			</plugin>
 		</plugins>
