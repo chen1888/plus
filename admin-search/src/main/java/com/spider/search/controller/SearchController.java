@@ -1,7 +1,7 @@
 package com.spider.search.controller;
 
 import com.spider.search.service.SearchService;
-import com.spider.search.vo.Search;
+import com.spider.search.vo.SearchSite;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +18,7 @@ public class SearchController {
     private SearchService searchService;
 
     @RequestMapping("test")
-    public @ResponseBody Search test(){
-        return searchService.search("1","d");
+    public @ResponseBody SearchSite test(String keywords,String origin){
+        return searchService.search(keywords,origin);
     }
 }

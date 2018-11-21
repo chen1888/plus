@@ -1,6 +1,8 @@
 package com.spider.search.mapper;
 
 import com.spider.search.vo.SearchSite;
+import org.apache.ibatis.annotations.Select;
+
 import java.util.List;
 
 public interface SearchSiteMapper {
@@ -43,4 +45,7 @@ public interface SearchSiteMapper {
      * @mbg.generated Wed Nov 21 09:55:20 CST 2018
      */
     int updateByPrimaryKey(SearchSite record);
+
+    @Select("SELECT * FROM search_site WHERE website = #{website}")
+    List<SearchSite> findbyWebsite(String website);
 }
