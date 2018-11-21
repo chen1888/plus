@@ -1,5 +1,7 @@
 package com.spider.search.util;
 
+import com.spider.search.vo.SearchItem;
+import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -16,42 +18,50 @@ public class HtmlUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(HtmlUtil.class);
 
-    public static String parse(String doc){
+    public static String parse(String doc, SearchItem searchItem){
         Document document = Jsoup.parse(doc);
         System.out.println(document.baseUri());
-        document.setBaseUri("http:");
-        Elements elements = document.select(".res-book-item");
+        document.setBaseUri(searchItem.getBaseUri());
+        Elements elements = document.select(searchItem.getBookItem());
         for (Element element:elements){
 
             //获取书籍图片
-            Element element1 = element.selectFirst(".book-img-box img[src]");
-            String bookPicture = element1.absUrl("src");
-            logger.info("书籍封面地址========》{}",bookPicture);
+            if(StringUtils.isNotBlank(searchItem.getBookPicture())) {
+                Element element1 = element.selectFirst(searchItem.getBookPicture());
+                String bookPicture = element1.absUrl(searchItem.getBookPictureEx());
+                logger.info("书籍封面地址========》{}", bookPicture);
+            }
 
             //获取书籍名
-            Element element2 = element.selectFirst(".book-mid-info h4");
+            Element element2 = element.selectFirst(searchItem.getBookName());
             String bookName = element2.text();
             logger.info("书籍名========》{}",bookName);
 
             //书籍作者
-            Element element3 = element.selectFirst(".book-mid-info a.name");
-            String author = element3.text();
-            logger.info("作者========》{}",author);
+            if(StringUtils.isNotBlank(searchItem.getBookAuthor())) {
+                Element element3 = element.selectFirst(searchItem.getBookAuthor());
+                String author = element3.text();
+                logger.info("作者========》{}", author);
+            }
 
             //获取书籍简介
-            Element element4 = element.selectFirst(".book-mid-info .intro");
+            Element element4 = element.selectFirst(searchItem.getBookIntro());
             String intro = element4.text();
             logger.info("书籍简介========》{}",intro);
 
             //获取最新更新
-            Element element5 = element.selectFirst(".book-mid-info .update a");
-            String update = element5.text();
-            logger.info("最新更新========》{}",update);
+            if(StringUtils.isNotBlank(searchItem.getBookUpdate())) {
+                Element element5 = element.selectFirst(searchItem.getBookUpdate());
+                String update = element5.text();
+                logger.info("最新更新========》{}", update);
+            }
 
             //获取字数
-            Element element6 = element.selectFirst(".book-right-info .total p");
-            String wordNum = element6.text().replace("总字数","");
-            logger.info("字数========》{}",wordNum);
+            if(StringUtils.isNotBlank(searchItem.getBookWords())){
+                Element element6 = element.selectFirst(searchItem.getBookWords());
+                String wordNum = element6.text().replace(searchItem.getBookWordsEx(),"");
+                logger.info("字数========》{}",wordNum);
+            }
 
 
 
