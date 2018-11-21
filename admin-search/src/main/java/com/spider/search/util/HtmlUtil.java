@@ -47,7 +47,7 @@ public class HtmlUtil {
             //书籍作者
             if(StringUtils.isNotBlank(searchItem.getBookAuthor())) {
                 Element element3 = element.selectFirst(searchItem.getBookAuthor());
-                String author = element3.text();
+                String author = element3.text().replaceAll(searchItem.getBookAuthorEx(),"");
                 resut.setAuthor(author);
                 logger.info("作者========》{}", author);
             }
@@ -69,7 +69,7 @@ public class HtmlUtil {
             //获取字数
             if(StringUtils.isNotBlank(searchItem.getBookWords())){
                 Element element6 = element.selectFirst(searchItem.getBookWords());
-                String wordNum = element6.text().replace(searchItem.getBookWordsEx(),"");
+                String wordNum = element6.text().replaceAll(searchItem.getBookWordsEx(),"");
                 resut.setWordNum(wordNum);
                 logger.info("字数========》{}",wordNum);
             }

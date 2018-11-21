@@ -32,7 +32,7 @@ public class SearchService{
         if(sites==null || sites.size() == 0){
             return null;
         }
-        Map<String, String> params = new HashMap<String, String>();
+        Map<String, String> params = new HashMap<>();
         params.put(sites.get(0).getKeywords(), keywords);
         String result = HttpUtils.sendGet(sites.get(0).getUrl(), params);
         List<SearchItem> searchItems = searchItemMapper.findBySiteId(sites.get(0).getId());
@@ -43,6 +43,7 @@ public class SearchService{
         System.out.println("结果是:" + result);
         return HtmlUtil.parse(result,searchItems.get(0));
     }
+
 
 
 
