@@ -5,6 +5,7 @@ import com.spider.search.mapper.SearchSiteMapper;
 import com.spider.search.util.HtmlUtil;
 import com.spider.search.util.HttpUtils;
 import com.spider.search.vo.SearchItem;
+import com.spider.search.vo.SearchItemResut;
 import com.spider.search.vo.SearchSite;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class SearchService{
     @Autowired
     private SearchItemMapper searchItemMapper;
 
-    public SearchSite search(String keywords, String website) {
+    public List<SearchItemResut> search(String keywords, String website) {
         List<SearchSite> sites = searchSiteMapper.findbyWebsite(website);
         if(sites==null || sites.size() == 0){
             return null;
@@ -39,9 +40,8 @@ public class SearchService{
             return null;
         }
 
-        HtmlUtil.parse(result,searchItems.get(0));
         System.out.println("结果是:" + result);
-        return sites.get(0);
+        return HtmlUtil.parse(result,searchItems.get(0));
     }
 
 
