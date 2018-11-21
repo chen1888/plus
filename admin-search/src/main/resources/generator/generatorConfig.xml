@@ -35,7 +35,7 @@
                              type="XMLMAPPER"/>
 
 
-        <table tableName="search_item" domainObjectName="SearchItem" enableCountByExample="true"
+        <table tableName="search_site" domainObjectName="SearchSite" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true">
         </table>

@@ -7,6 +7,7 @@ import com.spider.search.util.HttpUtils;
 import com.spider.search.vo.SearchItem;
 import com.spider.search.vo.SearchItemResut;
 import com.spider.search.vo.SearchSite;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,16 +28,23 @@ public class SearchService{
     @Autowired
     private SearchItemMapper searchItemMapper;
 
-    public List<SearchItemResut> search(String keywords, String website) {
+    public List<SearchItemResut> search(String keywords, String website,String pageSize,String pageNum) {
         List<SearchSite> sites = searchSiteMapper.findbyWebsite(website);
-        if(sites==null || sites.size() == 0){
+        if(sites.size() == 0){
             return null;
         }
+        SearchSite site = sites.get(0);
         Map<String, String> params = new HashMap<>();
-        params.put(sites.get(0).getKeywords(), keywords);
-        String result = HttpUtils.sendGet(sites.get(0).getUrl(), params);
-        List<SearchItem> searchItems = searchItemMapper.findBySiteId(sites.get(0).getId());
-        if(searchItems.size() == 0 || searchItems == null){
+        params.put(site.getKeywords(), keywords);
+        if(StringUtils.isNotBlank(pageNum)){
+            params.put(site.getPagenum(), pageNum);
+        }
+        if(StringUtils.isNotBlank(pageSize)){
+            params.put(site.getPagesize(),pageSize);
+        }
+        String result = HttpUtils.sendGet(site.getUrl(), params);
+        List<SearchItem> searchItems = searchItemMapper.findBySiteId(site.getId());
+        if(searchItems.size() == 0){
             return null;
         }
 

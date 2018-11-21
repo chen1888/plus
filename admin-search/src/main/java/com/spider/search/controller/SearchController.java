@@ -4,12 +4,14 @@ import com.spider.search.mapper.SearchItemMapper;
 import com.spider.search.service.SearchService;
 import com.spider.search.vo.Result;
 import com.spider.search.vo.SearchItem;
+import com.spider.search.vo.SearchItemResut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: chenxi
@@ -25,9 +27,10 @@ public class SearchController {
     private SearchItemMapper searchItemMapper;
 
     @RequestMapping("test")
-    public @ResponseBody Result test(String keywords, String origin){
+    public @ResponseBody Result test(String keywords, String origin,String pageSize,String pageNum){
         Result result = new Result();
-        result.setData(searchService.search(keywords,origin));
+        List<SearchItemResut> searchItemResuts = searchService.search(keywords,origin,pageSize,pageNum);
+        result.setData(searchItemResuts);
         return result;
 
     }
