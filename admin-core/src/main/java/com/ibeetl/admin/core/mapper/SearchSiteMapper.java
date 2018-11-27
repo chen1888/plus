@@ -1,6 +1,6 @@
-package com.spider.search.mapper;
+package com.ibeetl.admin.core.mapper;
 
-import com.spider.search.vo.SearchSite;
+import com.ibeetl.admin.core.web.vo.SearchSite;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;

@@ -33,6 +33,11 @@ public class IndexController {
 	HttpRequestLocal httpRequestLocal;
 
 	@RequestMapping("/")
+	public ModelAndView index1() {
+		ModelAndView view = new ModelAndView("/index1.html");
+		return view;
+	}
+	@RequestMapping("/admin")
 	public ModelAndView login() {
 		ModelAndView view = new ModelAndView("/login.html");
 		return view;

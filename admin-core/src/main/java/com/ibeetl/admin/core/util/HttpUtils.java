@@ -1,4 +1,4 @@
-package com.spider.search.util;
+package com.ibeetl.admin.core.util;
 
 import java.io.*;
 import java.util.List;

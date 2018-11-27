@@ -1,12 +1,12 @@
-package com.spider.search.service;
+package com.ibeetl.admin.console.service;
 
-import com.spider.search.mapper.SearchItemMapper;
-import com.spider.search.mapper.SearchSiteMapper;
-import com.spider.search.util.HtmlUtil;
-import com.spider.search.util.HttpUtils;
-import com.spider.search.vo.SearchItem;
-import com.spider.search.vo.SearchItemResut;
-import com.spider.search.vo.SearchSite;
+import com.ibeetl.admin.core.mapper.SearchItemMapper;
+import com.ibeetl.admin.core.mapper.SearchSiteMapper;
+import com.ibeetl.admin.core.util.HtmlUtil;
+import com.ibeetl.admin.core.util.HttpUtils;
+import com.ibeetl.admin.core.web.vo.SearchItem;
+import com.ibeetl.admin.core.web.vo.SearchItemResut;
+import com.ibeetl.admin.core.web.vo.SearchSite;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class SearchService{
     @Autowired
     private SearchItemMapper searchItemMapper;
 
-    public List<SearchItemResut> search(String keywords, String website,String pageSize,String pageNum) {
+    public List<SearchItemResut> search(String keywords, String website, String pageSize, String pageNum) {
         List<SearchSite> sites = searchSiteMapper.findbyWebsite(website);
         if(sites.size() == 0){
             return null;

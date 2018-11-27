@@ -1,10 +1,10 @@
-package com.spider.search.controller;
+package com.ibeetl.admin.console.web;
 
-import com.spider.search.mapper.SearchItemMapper;
-import com.spider.search.service.SearchService;
-import com.spider.search.vo.Result;
-import com.spider.search.vo.SearchItem;
-import com.spider.search.vo.SearchItemResut;
+import com.ibeetl.admin.console.service.SearchService;
+import com.ibeetl.admin.core.mapper.SearchItemMapper;
+import com.ibeetl.admin.core.web.vo.Result;
+import com.ibeetl.admin.core.web.vo.SearchItem;
+import com.ibeetl.admin.core.web.vo.SearchItemResut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,10 +56,10 @@ public class SearchController {
         return null;
     }
 
-    @RequestMapping("/")
-    public String index(){
-        return "index";
-    }
+//    @RequestMapping("/")
+//    public String index(){
+//        return "index";
+//    }
 
 
 }

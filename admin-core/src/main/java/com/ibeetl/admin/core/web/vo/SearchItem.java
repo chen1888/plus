@@ -1,4 +1,4 @@
-package com.spider.search.vo;
+package com.ibeetl.admin.core.web.vo;
 
 import java.io.Serializable;
 import java.util.Date;

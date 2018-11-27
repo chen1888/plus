@@ -1,7 +1,7 @@
-package com.spider.search.util;
+package com.ibeetl.admin.core.util;
 
-import com.spider.search.vo.SearchItem;
-import com.spider.search.vo.SearchItemResut;
+import com.ibeetl.admin.core.web.vo.SearchItem;
+import com.ibeetl.admin.core.web.vo.SearchItemResut;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
