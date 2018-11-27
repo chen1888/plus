@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,6 +51,25 @@ public class SearchService{
 
         System.out.println("结果是:" + result);
         return HtmlUtil.parse(result,searchItems.get(0));
+    }
+
+
+    public void save(SearchItem searchItem){
+        searchItem.setSiteId(1);
+        searchItem.setBaseUri("http:");
+        searchItem.setBookItem(".res-book-item");
+        searchItem.setBookPicture(".book-img-box img[src]");
+        searchItem.setBookPictureEx("src");
+        searchItem.setBookName(".book-mid-info h4");
+        searchItem.setBookIntro(".book-mid-info .intro");
+        searchItem.setBookUpdate(".book-mid-info .update a");
+        searchItem.setBookWords(".book-right-info .total p");
+        searchItem.setBookAuthor(".book-mid-info a.name");
+        searchItem.setBookWordsEx("总字数");
+        searchItem.setCreateTime(new Date());
+        searchItem.setUpdateTime(new Date());
+        searchItemMapper.insert(searchItem);
+
     }
 
 
