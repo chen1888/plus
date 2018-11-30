@@ -1,19 +1,23 @@
 package com.ibeetl.admin.console.web;
 
 import com.ibeetl.admin.console.service.SearchService;
+import com.ibeetl.admin.console.web.query.SearchSiteQuery;
 import com.ibeetl.admin.console.web.query.UserQuery;
-import com.ibeetl.admin.core.mapper.SearchItemMapper;
+import com.ibeetl.admin.core.entity.CoreUser;
+import com.ibeetl.admin.core.web.JsonResult;
 import com.ibeetl.admin.core.web.vo.Result;
 import com.ibeetl.admin.core.web.vo.SearchItem;
 import com.ibeetl.admin.core.web.vo.SearchItemResut;
+import com.ibeetl.admin.core.web.vo.SearchSite;
+import org.beetl.sql.core.engine.PageQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -57,10 +61,18 @@ public class SearchController {
     @GetMapping(MODEL2 + "/site/index.do")
     public ModelAndView siteIndex() {
         ModelAndView view = new ModelAndView("/admin/search/index.html");
-        view.addObject("search", UserQuery.class.getName());
+        view.addObject("search", SearchSiteQuery.class.getName());
         return view;
     }
 
+    @PostMapping(MODEL2 + "/list.json")
+    @ResponseBody
+    public JsonResult<PageQuery<SearchSite>> siteIndex(SearchSiteQuery query) {
+        List<SearchSite> list = searchService.findSiteList(query);
+        PageQuery<SearchSite> page = query.getPageQuery();
+        page.setList(list);
+        return JsonResult.success(page);
+    }
 
 //    @RequestMapping("/")
 //    public String index(){

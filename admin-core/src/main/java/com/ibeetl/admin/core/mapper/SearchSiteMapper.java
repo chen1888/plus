@@ -48,4 +48,15 @@ public interface SearchSiteMapper {
 
     @Select("SELECT * FROM search_site WHERE website = #{website}")
     List<SearchSite> findbyWebsite(String website);
+
+    @Select({"<script>"
+            ,"SELECT * FROM search_site"
+            ,"<where> 1=1"
+            ,"<if test='website!=null'>"
+            , "and website=#{website}"
+            , "</if>"
+            ,"</where>"
+            ,"imit #{start,jdbcType=INTEGER},#{size,jdbcType=INTEGER}"
+            ,"</script>"})
+    List<SearchSite> findPageList(String website,Integer start,Integer size);
 }

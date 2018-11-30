@@ -1,5 +1,6 @@
 package com.ibeetl.admin.console.service;
 
+import com.ibeetl.admin.console.web.query.SearchSiteQuery;
 import com.ibeetl.admin.core.mapper.SearchItemMapper;
 import com.ibeetl.admin.core.mapper.SearchSiteMapper;
 import com.ibeetl.admin.core.util.HtmlUtil;
@@ -70,6 +71,13 @@ public class SearchService{
         searchItem.setUpdateTime(new Date());
         searchItemMapper.insert(searchItem);
 
+    }
+
+
+    public List<SearchSite> findSiteList(SearchSiteQuery query){
+        Integer pageSize = (int)query.getPageQuery().getPageSize();
+        Integer start = ((int)query.getPageQuery().getPageNumber()-1)*pageSize;
+        return searchSiteMapper.findPageList(query.getWebsite(),start,pageSize);
     }
 
 
