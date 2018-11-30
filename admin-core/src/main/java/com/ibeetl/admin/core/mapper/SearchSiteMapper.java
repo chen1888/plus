@@ -56,7 +56,7 @@ public interface SearchSiteMapper {
             , "and website=#{website}"
             , "</if>"
             ,"</where>"
-            ,"imit #{start,jdbcType=INTEGER},#{size,jdbcType=INTEGER}"
+            ,"limit #{start,jdbcType=INTEGER},#{size,jdbcType=INTEGER}"
             ,"</script>"})
     List<SearchSite> findPageList(String website,Integer start,Integer size);
 }

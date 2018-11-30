@@ -21,7 +21,7 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 				elem : '#siteTable',
 				height : Lib.getTableHeight(2),
 				method : 'post',
-				url : Common.ctxPath + '/admin/user/list.json' //数据接口
+				url : Common.ctxPath + '/admin/search/site/list.json' //数据接口
 				,page : Lib.tablePage //开启分页
 				,limit : 10,
 				cols : [ [ //表头
@@ -35,40 +35,41 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 					fixed:'left',
 					sort : true
 				}, {
-					field : 'code',
-					title : '用户名',
-					width : 150
+					field : 'website',
+					title : '网站',
+					width : 150,
+					sort : true
 				}, {
-					field : 'name',
-					title : '姓名',
+					field : 'method',
+					title : '请求方式',
 					width : 120,
 					sort : true
 				}, {
-					field : 'orgName',
-					title : '机构',
-					width : 120,
+					field : 'url',
+					title : '搜索链接',
+					width : 300,
 					sort : true
 				}, {
-					field : 'stateText',
-					title : '状态',
+					field : 'keywords',
+					title : '关键字属性名',
 					width : 120,
 					sort : true
 				},
 				 {
-					field : 'jobType0Text',
-					title : '职位',
-					width : 120,
+					field : 'pagesize',
+					title : 'pageSize属性名',
+					width : 150,
 					sort : true
 				},
 				 {
-					field : 'jobType1Text',
-					title : '职位明细',
-					width : 80,
+					field : 'pagenum',
+					title : 'pageNum属性名',
+					width : 150,
 					sort : true
 				},
 				{
-					field : 'createTime',
-					title : '创建时间',
+					field : 'updateTime',
+					title : '修改时间',
 					width : 120,
 					templet:function(d){
 						return Common.getDate(d.createTime);

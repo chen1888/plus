@@ -65,7 +65,7 @@ public class SearchController {
         return view;
     }
 
-    @PostMapping(MODEL2 + "/list.json")
+    @PostMapping(MODEL2 + "/site/list.json")
     @ResponseBody
     public JsonResult<PageQuery<SearchSite>> siteIndex(SearchSiteQuery query) {
         List<SearchSite> list = searchService.findSiteList(query);
