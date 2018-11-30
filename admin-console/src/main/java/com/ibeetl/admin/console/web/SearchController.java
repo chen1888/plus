@@ -77,8 +77,10 @@ public class SearchController {
         if("".equals(query.getWebsite())){
             query.setWebsite(null);
         }
+        int total = searchService.count();
         List<SearchSite> list = searchService.findSiteList(query);
         PageQuery<SearchSite> page = query.getPageQuery();
+        page.setTotalRow(total);
         page.setList(list);
         return JsonResult.success(page);
     }

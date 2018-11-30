@@ -81,7 +81,14 @@ public class SearchService{
         return searchSiteMapper.findPageList(query.getWebsite(),start,pageSize);
     }
 
-
+    public Integer count(){
+        try {
+            return searchSiteMapper.count();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
     public Integer saveSite(SearchSite searchSite){
         searchSite.setCreateTime(new Date());

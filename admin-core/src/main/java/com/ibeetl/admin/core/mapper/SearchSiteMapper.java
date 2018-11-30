@@ -77,4 +77,7 @@ public interface SearchSiteMapper {
             ,"</foreach>"
             ,"</script>"})
     public int deleteSite(List<Integer> ids) throws SQLException;
+
+    @Select("SELECT count(id) FROM search_site")
+    public int count() throws SQLException;
 }
