@@ -1,46 +1,41 @@
-<!--# layout("/common/layout.html",{"jsBase":"/js/admin/menu/"}){ -->
+<!--# layout("/common/layout.html",{"jsBase":"/js/admin/search/site/"}){ -->
 
 <form class="layui-form layui-form-pane" id="updateForm">
 <div class="layui-row">
 		<div class="layui-form-item">
-			<label class="layui-form-label">菜单名</label>
-			<div class="layui-input-block">
-				<input type="text" name="name" autocomplete="off"
-					placeholder="请输入名称" class="layui-input" value="${menu.name}">
-			</div>
-		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">菜单代码</label>
+			<label class="layui-form-label">网站名</label>
 			<div class="layui-input-inline">
-				<input type="text" name="code"  lay-verify="required"
+				<input type="text" name="website"  lay-verify="required"
 					placeholder="请输入" autocomplete="off" class="layui-input"
-					value="${menu.code}">
+					value="${searchSite.website}">
 			</div>
 		</div>
-		<div class="layui-form-item">
-			<label class="layui-form-label">菜单地址</label>
-			<layui:menuFunctionInput style='layui-input-inline' name="functionId" id="functionId"
-							value="${menu.functionId}"></layui:menuFunctionInput>
+	<div class="layui-form-item">
+		<label class="layui-form-label">搜索链接</label>
+		<div class="layui-input-block">
+			<input type="text" name="url" autocomplete="off"
+				   placeholder="请输入名称" class="layui-input" value="${searchSite.url}">
 		</div>
+	</div>
 	</div>
 	<div class="layui-row">
 		<div class="layui-col-xs4">
 			<div class="layui-form-item">
-				<label class="layui-form-label">菜单排序</label>
+				<label class="layui-form-label">请求方式</label>
 					<div class="layui-input-inline">
-					<input type="text" name="seq" id="seq"  lay-verify="required"
+					<input type="text" name="method"  lay-verify="required"
 						placeholder="请输入" autocomplete="off" class="layui-input"
-						value="${menu.seq}">
+						value="${searchSite.method}">
 					</div>
 			</div>
 		</div>
 		<div class="layui-col-xs4">
 			<div class="layui-form-item">
-				<label class="layui-form-label">菜单图标</label>
+				<label class="layui-form-label">关键字属性名</label>
 				<div class="layui-input-inline">
-				<input type="text" name="icon"  lay-verify="required"
+				<input type="text" name="keywords"  lay-verify="required"
 					placeholder="请输入" autocomplete="off" class="layui-input"
-					value="${menu.icon}">
+					value="${searchSite.keywords}">
 				</div>
 			</div>
 		</div>
@@ -49,17 +44,23 @@
 		<div class="layui-col-xs4">
 			<div class="layui-form-item">
 				<div class="layui-inline">
-					<label class="layui-form-label">所在父菜单</label>
-					<layui:menuInput style='layui-input-inline' name="parentMenuId" id="parentMenuId"
-						value="${menu.parentMenuId}"></layui:menuInput>
+					<label class="layui-form-label">pageSize属性名</label>
+					<div class="layui-input-inline">
+						<input type="text" name="pagesize"  lay-verify="required"
+							   placeholder="请输入" autocomplete="off" class="layui-input"
+							   value="${searchSite.pagesize}">
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="layui-col-xs4">
 			<div class="layui-form-item">
-				<label class="layui-form-label">菜单类型</label>
-				<layui:simpleDictSelect style='layui-input-inline' type="menu_type"
-					id="type" name="type" value="${menu.type}" />
+				<label class="layui-form-label">pageNum属性名</label>
+				<div class="layui-input-inline">
+					<input type="text" name="pagenum"  lay-verify="required"
+						   placeholder="请输入" autocomplete="off" class="layui-input"
+						   value="${searchSite.pagenum}">
+				</div>
 			</div>
 		</div>
 
@@ -67,14 +68,14 @@
 
 	
 	
-	<layui:submitButtons id="saveMenu" />
-	<input type="hidden" name="id" value=${menu.id} />
+	<layui:submitButtons id="savesearchSite" />
+	<input type="hidden" name="id" value=${searchSite.id} />
 </form>
 <!--#} -->
 <script>
 layui.use(['edit'], function(){
-  var menuEdit = layui.edit
-  menuEdit.init();
+  var searchSiteEdit = layui.edit
+  searchSiteEdit.init();
 });
 
 </script>

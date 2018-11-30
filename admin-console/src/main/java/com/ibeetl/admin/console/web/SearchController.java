@@ -92,7 +92,7 @@ public class SearchController {
     public ModelAndView siteEdit(Integer id) {
         ModelAndView view = new ModelAndView("/admin/search/site_edit.html");
         SearchSite searchSite = searchService.findSiteById(id);
-        view.addObject("menu", searchSite);
+        view.addObject("searchSite", searchSite);
         return view;
     }
 

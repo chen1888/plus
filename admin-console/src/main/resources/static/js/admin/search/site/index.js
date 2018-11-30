@@ -97,7 +97,7 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 							return ;
 						}
 						var url = "/admin/search/site/edit.do?id="+data.id;
-						Common.openDlg(url,"用户管理>编辑");
+						Common.openDlg(url,"网站配置>编辑");
 						
 					},
 					del : function() { 
@@ -105,15 +105,6 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 							  var delView = layui.del
 							  delView.delBatch();
 						});
-					},
-					userRole : function() { //获取选中数目
-						var data = Common.getOneFromTable(table,"siteTable");
-						if(data==null){
-							return ;
-						}
-						var url = "/admin/user/role/list.do?id="+data.id;
-						Common.openDlg(url,"用户管理>"+data.name+">角色管理");
-						
 					},
 					changePassword:function(){
 						var data = Common.getOneFromTable(table,"siteTable");
