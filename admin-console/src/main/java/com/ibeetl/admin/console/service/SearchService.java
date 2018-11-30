@@ -103,6 +103,10 @@ public class SearchService{
     }
 
 
+    public SearchSite findSiteById(Integer id){
+        return searchSiteMapper.selectByPrimaryKey(id);
+    }
+
 
 
 

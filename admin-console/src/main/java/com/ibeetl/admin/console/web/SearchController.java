@@ -88,6 +88,14 @@ public class SearchController {
         return view;
     }
 
+    @GetMapping(MODEL2 + "/site/edit.do")
+    public ModelAndView siteEdit(Integer id) {
+        ModelAndView view = new ModelAndView("/admin/search/site_edit.html");
+        SearchSite searchSite = searchService.findSiteById(id);
+        view.addObject("menu", searchSite);
+        return view;
+    }
+
 
     @PostMapping(MODEL2 + "/site/save.json")
     @ResponseBody
@@ -103,6 +111,9 @@ public class SearchController {
         searchService.batchDeleteSiteId(dels);
         return new JsonResult().success();
     }
+
+
+
 
 //    @RequestMapping("/")
 //    public String index(){

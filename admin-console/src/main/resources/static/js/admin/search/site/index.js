@@ -96,7 +96,7 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 						if(data==null){
 							return ;
 						}
-						var url = "/admin/user/edit.do?id="+data.id;
+						var url = "/admin/search/site/edit.do?id="+data.id;
 						Common.openDlg(url,"用户管理>编辑");
 						
 					},

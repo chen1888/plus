@@ -31,6 +31,7 @@ public interface SearchSiteMapper {
      *
      * @mbg.generated Wed Nov 21 16:01:33 CST 2018
      */
+    @Select("select * from search_site where id=#{id}")
     SearchSite selectByPrimaryKey(Integer id);
 
     /**
@@ -56,7 +57,7 @@ public interface SearchSiteMapper {
             ,"SELECT * FROM search_site"
             ,"<where> 1=1"
             ,"<if test='website!=null'>"
-            , "and website=#{website}"
+            , "and website like concat('%',#{website},'%')"
             , "</if>"
             ,"</where>"
             ,"limit #{start,jdbcType=INTEGER},#{size,jdbcType=INTEGER}"
