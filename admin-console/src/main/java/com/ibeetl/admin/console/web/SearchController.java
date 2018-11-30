@@ -73,6 +73,9 @@ public class SearchController {
     @PostMapping(MODEL2 + "/site/list.json")
     @ResponseBody
     public JsonResult<PageQuery<SearchSite>> siteIndex(SearchSiteQuery query) {
+        if("".equals(query.getWebsite())){
+            query.setWebsite(null);
+        }
         List<SearchSite> list = searchService.findSiteList(query);
         PageQuery<SearchSite> page = query.getPageQuery();
         page.setList(list);
@@ -96,8 +99,8 @@ public class SearchController {
     @PostMapping(MODEL2 + "/site/batchDel.json")
     @ResponseBody
     public JsonResult deleteSite(String ids) {
-        //List<Integer> dels = ConvertUtil.str2Int(ids);
-        searchService.batchDeleteSiteId(ids);
+        List<Integer> dels = ConvertUtil.str2Int(ids);
+        searchService.batchDeleteSiteId(dels);
         return new JsonResult().success();
     }
 

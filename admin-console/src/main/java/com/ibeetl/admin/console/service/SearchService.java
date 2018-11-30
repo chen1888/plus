@@ -94,7 +94,7 @@ public class SearchService{
         return 0;
     }
 
-    public void batchDeleteSiteId(String ids){
+    public void batchDeleteSiteId(List<Integer> ids){
         try {
             searchSiteMapper.deleteSite(ids);
         } catch (SQLException e) {

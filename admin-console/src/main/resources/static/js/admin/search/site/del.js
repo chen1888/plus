@@ -6,7 +6,7 @@ layui.define(['table', 'menuApi'], function(exports) {
 				
 			},
 			delBatch:function(){
-				var data = Common.getMoreDataFromTable(table,"menuTable");
+				var data = Common.getMoreDataFromTable(table,"siteTable");
 				if(data==null){
 					return ;
 				}

@@ -1,6 +1,7 @@
 package com.ibeetl.admin.core.mapper;
 
 import com.ibeetl.admin.core.web.vo.SearchSite;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
@@ -66,6 +67,11 @@ public interface SearchSiteMapper {
     @Insert(" insert into search_site(website,domain,method,url,keywords,create_time,update_time,pageSize,pageNum) values (#{website,jdbcType=VARCHAR}, #{domain,jdbcType=VARCHAR}, #{method,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{keywords,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE}, #{pagesize,jdbcType=VARCHAR}, #{pagenum,jdbcType=VARCHAR})")
     public int insertSite(SearchSite searchSite) throws SQLException;
 
-    @Insert(" delete from search_site where id in (#{ids})")
-    public int deleteSite(String ids) throws SQLException;
+    @Delete({"<script>"
+            ,"delete from search_site where 1=1 and id in "
+            ,"<foreach collection='list'  item='id' open='(' separator=',' close=')'  >"
+            ,"#{id}"
+            ,"</foreach>"
+            ,"</script>"})
+    public int deleteSite(List<Integer> ids) throws SQLException;
 }
