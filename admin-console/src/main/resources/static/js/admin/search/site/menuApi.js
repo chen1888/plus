@@ -2,7 +2,7 @@
 layui.define([], function(exports) {
 	var api={
 			updateMenu:function(callback){
-				Lib.submitForm("/admin/menu/update.json",$('#updateForm'),{},callback)
+				Lib.submitForm("/admin/search/site/update.json",$('#updateForm'),{},callback)
 			},
 			addMenu:function(callback){
 				Lib.submitForm("/admin/search/site/save.json",$('#addForm'),{},callback)

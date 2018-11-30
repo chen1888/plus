@@ -4,6 +4,7 @@ import com.ibeetl.admin.console.service.SearchService;
 import com.ibeetl.admin.console.web.query.SearchSiteQuery;
 import com.ibeetl.admin.console.web.query.UserQuery;
 import com.ibeetl.admin.core.annotation.Function;
+import com.ibeetl.admin.core.entity.CoreMenu;
 import com.ibeetl.admin.core.entity.CoreUser;
 import com.ibeetl.admin.core.util.ConvertUtil;
 import com.ibeetl.admin.core.web.JsonResult;
@@ -111,14 +112,19 @@ public class SearchController {
         searchService.batchDeleteSiteId(dels);
         return new JsonResult().success();
     }
+    /**
+     * 更新
+     * @param fun
+     * @return
+     */
+    @PostMapping(MODEL2 + "/site/update.json")
+    @ResponseBody
+    public JsonResult update(SearchSite searchSite) {
+        searchService.updateSiteById(searchSite);
+        return new JsonResult().success();
+    }
 
 
-
-
-//    @RequestMapping("/")
-//    public String index(){
-//        return "index";
-//    }
 
 
 }

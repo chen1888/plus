@@ -8,7 +8,7 @@ layui.define([ 'form', 'laydate', 'table','menuApi'], function(exports) {
 				this.initSubmit();
 			},
 			initSubmit:function(){
-				$("#saveMenu").click(function(){
+				$("#savesearchSite").click(function(){
 					//默认值
 					if(!$('#parentMenuId').val()){
 						$('#parentMenuId').val(0);
@@ -23,7 +23,7 @@ layui.define([ 'form', 'laydate', 'table','menuApi'], function(exports) {
 					
 				});
 				
-				$("#saveMenu-cancel").click(function(){
+				$("#savesearchSite-cancel").click(function(){
 					Lib.closeFrame();
 				});
 			}

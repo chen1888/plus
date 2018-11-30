@@ -4,6 +4,7 @@ import com.ibeetl.admin.core.web.vo.SearchSite;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -48,6 +49,7 @@ public interface SearchSiteMapper {
      *
      * @mbg.generated Wed Nov 21 16:01:33 CST 2018
      */
+    @Update("update search_site set website = #{website},website=#{website},domain=#{domain},method=#{method},url=#{url},keywords=#{keywords},update_time=#{updateTime},pageSize=#{pagesize},pageNum=#{pagenum} WHERE id = #{id}")
     int updateByPrimaryKey(SearchSite record);
 
     @Select("SELECT * FROM search_site WHERE website = #{website}")
