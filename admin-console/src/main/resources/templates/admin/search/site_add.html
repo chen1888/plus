@@ -1,27 +1,27 @@
-<!--# layout("/common/layout.html",{"jsBase":"/js/admin/menu/"}){ -->
+<!--# layout("/common/layout.html",{"jsBase":"/js/admin/search/site/"}){ -->
 
 <form class="layui-form layui-form-pane" id="addForm">
 	<div class="layui-row">
 		<div class="layui-form-item">
-			<label class="layui-form-label">网站名</label>
+			<label class="layui-form-label" style="width: 150px;">网站名</label>
 			<div class="layui-input-inline">
-				<input type="text" name="code"  lay-verify="required"
+				<input type="text" name="website"  lay-verify="required"
 					   placeholder="请输入" autocomplete="off" class="layui-input"
 					   value="">
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">搜索链接</label>
+			<label class="layui-form-label" style="width: 150px;">搜索链接</label>
 			<div class="layui-input-block">
 				<input type="text" name="name" autocomplete="off"
-					placeholder="请输入名称" class="layui-input" value="">
+					placeholder="请输入链接" class="layui-input" value="" style="width: 80%;">
 			</div>
 		</div>
 	</div>
 	<div class="layui-row">
 		<div class="layui-col-xs4">
 			<div class="layui-form-item">
-				<label class="layui-form-label">请求方式</label>
+				<label class="layui-form-label" style="width: 150px;">请求方式</label>
 					<div class="layui-input-inline">
 					<input type="text" name="seq" id="seq"  lay-verify="required"
 						placeholder="请输入" autocomplete="off" class="layui-input"
@@ -31,7 +31,7 @@
 		</div>
 		<div class="layui-col-xs4">
 			<div class="layui-form-item">
-				<label class="layui-form-label">关键字属性名</label>
+				<label class="layui-form-label" style="width: 150px;">关键字属性名</label>
 				<div class="layui-input-inline">
 				<input type="text" name="icon"  lay-verify="required"
 					placeholder="请输入" autocomplete="off" class="layui-input"
@@ -44,17 +44,23 @@
 		<div class="layui-col-xs4">
 			<div class="layui-form-item">
 				<div class="layui-inline">
-					<label class="layui-form-label">pageSize属性名</label>
-					<layui:menuInput style='layui-input-inline' name="parentMenuId" id="parentMenuId"
-						value=""></layui:menuInput>
+					<label class="layui-form-label" style="width: 150px;">pageSize属性名</label>
+					<div class="layui-input-inline">
+						<input type="text" name="icon"  lay-verify="required"
+							   placeholder="请输入" autocomplete="off" class="layui-input"
+							   value="">
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="layui-col-xs4">
 			<div class="layui-form-item">
-				<label class="layui-form-label">菜单类型</label>
-				<layui:simpleDictSelect style='layui-input-inline' type="menu_type"
-					id="type" name="type" value="" />
+				<label class="layui-form-label" style="width: 150px;">pageNum属性名</label>
+				<div class="layui-input-inline">
+					<input type="text" name="icon"  lay-verify="required"
+						   placeholder="请输入" autocomplete="off" class="layui-input"
+						   value="">
+				</div>
 			</div>
 		</div>
 

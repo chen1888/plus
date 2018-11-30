@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -78,6 +79,19 @@ public class SearchService{
         Integer pageSize = (int)query.getPageQuery().getPageSize();
         Integer start = ((int)query.getPageQuery().getPageNumber()-1)*pageSize;
         return searchSiteMapper.findPageList(query.getWebsite(),start,pageSize);
+    }
+
+
+
+    public Integer saveSite(SearchSite searchSite){
+        searchSite.setCreateTime(new Date());
+        searchSite.setUpdateTime(new Date());
+        try {
+            return searchSiteMapper.insertSite(searchSite);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
 

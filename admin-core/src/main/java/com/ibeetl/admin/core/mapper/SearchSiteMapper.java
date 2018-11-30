@@ -1,8 +1,10 @@
 package com.ibeetl.admin.core.mapper;
 
 import com.ibeetl.admin.core.web.vo.SearchSite;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface SearchSiteMapper {
@@ -59,4 +61,8 @@ public interface SearchSiteMapper {
             ,"limit #{start,jdbcType=INTEGER},#{size,jdbcType=INTEGER}"
             ,"</script>"})
     List<SearchSite> findPageList(String website,Integer start,Integer size);
+
+
+    @Insert(" insert into search_site(website,domain,method,url,keywords,create_time,update_time,pageSize,pageNum) values (#{website,jdbcType=VARCHAR}, #{domain,jdbcType=VARCHAR}, #{method,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{keywords,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE}, #{pagesize,jdbcType=VARCHAR}, #{pagenum,jdbcType=VARCHAR})")
+    public int insertSite(SearchSite searchSite) throws SQLException;
 }

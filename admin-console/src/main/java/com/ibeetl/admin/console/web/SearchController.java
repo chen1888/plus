@@ -12,6 +12,7 @@ import com.ibeetl.admin.core.web.vo.SearchSite;
 import org.beetl.sql.core.engine.PageQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+
+import static java.awt.SystemColor.menu;
 
 /**
  * @Author: chenxi
@@ -78,6 +81,14 @@ public class SearchController {
     public ModelAndView siteAdd() {
         ModelAndView view = new ModelAndView("/admin/search/site_add.html");
         return view;
+    }
+
+
+    @PostMapping(MODEL2 + "/site/save.json")
+    @ResponseBody
+    public JsonResult save(@Validated SearchSite searchSite) {
+        Integer id = searchService.saveSite(searchSite);
+        return JsonResult.success(id);
     }
 
 //    @RequestMapping("/")
