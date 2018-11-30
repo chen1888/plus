@@ -8,7 +8,7 @@ layui.define([], function(exports) {
 				Lib.submitForm("/admin/search/site/save.json",$('#addForm'),{},callback)
 			},
 			del:function(ids,callback){
-				Common.post("/admin/menu/batchDel.json",{"ids":ids},callback)
+				Common.post("/admin/search/site/batchDel.json",{"ids":ids},callback)
 			}
 			
 		

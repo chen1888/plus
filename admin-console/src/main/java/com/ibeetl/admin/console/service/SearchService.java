@@ -94,6 +94,14 @@ public class SearchService{
         return 0;
     }
 
+    public void batchDeleteSiteId(String ids){
+        try {
+            searchSiteMapper.deleteSite(ids);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 

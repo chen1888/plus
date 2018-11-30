@@ -32,4 +32,22 @@ public class ConvertUtil {
 		}
 		return rets;
 	}
+
+	public static List<Integer> str2Int(String str){
+		if(str.length()==0){
+			return Collections.EMPTY_LIST;
+		}
+		String[] array = str.split(",");
+		List<Integer> rets = new ArrayList(array.length);
+		int i = 0;
+		for(String id:array){
+			try{
+				rets.add(Integer.parseInt(id));
+			}catch(Exception ex){
+				throw new RuntimeException("转化 "+str+ " 到Long数组出错");
+			}
+
+		}
+		return rets;
+	}
 }

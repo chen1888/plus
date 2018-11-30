@@ -3,7 +3,9 @@ package com.ibeetl.admin.console.web;
 import com.ibeetl.admin.console.service.SearchService;
 import com.ibeetl.admin.console.web.query.SearchSiteQuery;
 import com.ibeetl.admin.console.web.query.UserQuery;
+import com.ibeetl.admin.core.annotation.Function;
 import com.ibeetl.admin.core.entity.CoreUser;
+import com.ibeetl.admin.core.util.ConvertUtil;
 import com.ibeetl.admin.core.web.JsonResult;
 import com.ibeetl.admin.core.web.vo.Result;
 import com.ibeetl.admin.core.web.vo.SearchItem;
@@ -86,9 +88,17 @@ public class SearchController {
 
     @PostMapping(MODEL2 + "/site/save.json")
     @ResponseBody
-    public JsonResult save(@Validated SearchSite searchSite) {
+    public JsonResult saveSite(@Validated SearchSite searchSite) {
         Integer id = searchService.saveSite(searchSite);
         return JsonResult.success(id);
+    }
+
+    @PostMapping(MODEL2 + "/site/batchDel.json")
+    @ResponseBody
+    public JsonResult deleteSite(String ids) {
+        //List<Integer> dels = ConvertUtil.str2Int(ids);
+        searchService.batchDeleteSiteId(ids);
+        return new JsonResult().success();
     }
 
 //    @RequestMapping("/")
