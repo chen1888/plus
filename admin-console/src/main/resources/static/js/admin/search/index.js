@@ -88,8 +88,8 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 		initToolBar:function(){
 			toolbar = {
 					add : function() { //获取选中数据
-						var url = "/admin/user/add.do";
-						Common.openDlg(url,"用户管理>新增");
+						var url = "/admin/search/site/add.do";
+						Common.openDlg(url,"网站配置>新增");
 					},
 					edit : function() { //获取选中数目
 						var data = Common.getOneFromTable(table,"siteTable");

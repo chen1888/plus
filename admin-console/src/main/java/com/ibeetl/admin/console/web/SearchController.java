@@ -74,6 +74,12 @@ public class SearchController {
         return JsonResult.success(page);
     }
 
+    @GetMapping(MODEL2 + "/site/add.do")
+    public ModelAndView siteAdd() {
+        ModelAndView view = new ModelAndView("/admin/search/site_add.html");
+        return view;
+    }
+
 //    @RequestMapping("/")
 //    public String index(){
 //        return "index";
