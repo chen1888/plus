@@ -46,12 +46,12 @@ public class SearchService{
             params.put(site.getPagesize(),pageSize);
         }
         String result = HttpUtils.sendGet(site.getUrl(), params);
+        System.out.println("结果是:" + result);
         List<SearchItem> searchItems = searchItemMapper.findBySiteId(site.getId());
         if(searchItems.size() == 0){
             return null;
         }
 
-        System.out.println("结果是:" + result);
         return HtmlUtil.parse(result,searchItems.get(0));
     }
 

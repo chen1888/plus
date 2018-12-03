@@ -1,0 +1,22 @@
+<!--#layout("/common/layout.html",{"jsBase":"/js/admin/search/site/"}){ -->
+<layui:searchForm formId="searchForm"  condition="${search}">
+</layui:searchForm>
+
+  <div class="layui-btn-group">
+  	<layui:accessButton function="user.add"  action="add">增加</layui:accessButton>
+  	<layui:accessButton function="user.edit"  action="edit">编辑</layui:accessButton>
+  	<layui:accessButton function="user.del"  action="del">删除</layui:accessButton>
+
+  	
+      
+  </div>
+<table id="siteTable" lay-filter="siteTable"></table>
+<!--#} -->
+<script>
+
+layui.use(['index'], function(){
+  var index = layui.index
+  index.init();
+});
+
+</script>

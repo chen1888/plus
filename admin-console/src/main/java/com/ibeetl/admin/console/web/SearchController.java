@@ -66,7 +66,14 @@ public class SearchController {
 
     @GetMapping(MODEL2 + "/site/index.do")
     public ModelAndView siteIndex() {
-        ModelAndView view = new ModelAndView("/admin/search/index.html");
+        ModelAndView view = new ModelAndView("/admin/search/site_index.html");
+        view.addObject("search", SearchSiteQuery.class.getName());
+        return view;
+    }
+
+    @GetMapping(MODEL2 + "/item/index.do")
+    public ModelAndView itemIndex() {
+        ModelAndView view = new ModelAndView("/admin/search/item_index.html");
         view.addObject("search", SearchSiteQuery.class.getName());
         return view;
     }
