@@ -2,10 +2,6 @@ package com.ibeetl.admin.console.web;
 
 import com.ibeetl.admin.console.service.SearchService;
 import com.ibeetl.admin.console.web.query.SearchSiteQuery;
-import com.ibeetl.admin.console.web.query.UserQuery;
-import com.ibeetl.admin.core.annotation.Function;
-import com.ibeetl.admin.core.entity.CoreMenu;
-import com.ibeetl.admin.core.entity.CoreUser;
 import com.ibeetl.admin.core.util.ConvertUtil;
 import com.ibeetl.admin.core.web.JsonResult;
 import com.ibeetl.admin.core.web.vo.Result;
@@ -24,7 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-import static java.awt.SystemColor.menu;
 
 /**
  * @Author: chenxi
