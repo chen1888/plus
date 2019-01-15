@@ -1,7 +1,7 @@
 package com.ibeetl.admin.console.web;
 
-import com.ibeetl.admin.console.service.SearchService;
-import com.ibeetl.admin.console.web.query.SearchSiteQuery;
+import com.ibeetl.admin.core.service.SearchService;
+import com.ibeetl.admin.core.web.query.SearchSiteQuery;
 import com.ibeetl.admin.core.util.ConvertUtil;
 import com.ibeetl.admin.core.web.JsonResult;
 import com.ibeetl.admin.core.web.vo.Result;

@@ -41,6 +41,7 @@ public interface SearchSiteMapper {
      *
      * @mbg.generated Wed Nov 21 16:01:33 CST 2018
      */
+    @Select(("select * from search_site"))
     List<SearchSite> selectAll();
 
     /**

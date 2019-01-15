@@ -1,10 +1,13 @@
 package com.ibeetl.admin.core.web;
 
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.ibeetl.admin.core.service.SearchService;
+import com.ibeetl.admin.core.web.vo.SearchSite;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,10 +34,15 @@ public class IndexController {
 
 	@Autowired
 	HttpRequestLocal httpRequestLocal;
+	@Autowired
+	SearchService searchService;
 
 	@RequestMapping("/")
 	public ModelAndView index1() {
+		List<SearchSite> allSite = searchService.findAllSite();
 		ModelAndView view = new ModelAndView("/index1.html");
+		view.addObject("test","1111");
+		view.addObject("sites",allSite);
 		return view;
 	}
 	@RequestMapping("/admin")

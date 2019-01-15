@@ -1,10 +1,10 @@
-package com.ibeetl.admin.console.service;
+package com.ibeetl.admin.core.service;
 
-import com.ibeetl.admin.console.web.query.SearchSiteQuery;
 import com.ibeetl.admin.core.mapper.SearchItemMapper;
 import com.ibeetl.admin.core.mapper.SearchSiteMapper;
 import com.ibeetl.admin.core.util.HtmlUtil;
 import com.ibeetl.admin.core.util.HttpUtils;
+import com.ibeetl.admin.core.web.query.SearchSiteQuery;
 import com.ibeetl.admin.core.web.vo.SearchItem;
 import com.ibeetl.admin.core.web.vo.SearchItemResut;
 import com.ibeetl.admin.core.web.vo.SearchSite;
@@ -117,6 +117,11 @@ public class SearchService{
     public void updateSiteById(SearchSite searchSite){
         searchSite.setUpdateTime(new Date());
         searchSiteMapper.updateByPrimaryKey(searchSite);
+    }
+
+
+    public List<SearchSite> findAllSite(){
+        return searchSiteMapper.selectAll();
     }
 
 

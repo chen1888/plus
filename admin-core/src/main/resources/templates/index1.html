@@ -5702,10 +5702,7 @@ g_img.hdsup = 0;
                     </div>
                     <div style="display: inline-block;">
                         <select style="height: 53px;width: 83px;padding-top: 3px;margin-left: 7px">
-                            <option>ddd</option>
-                            <option>ddd</option>
-                            <option>ddd</option>
-                            <option>ddd</option>
+                            <option>${sites}</option>
                         </select>
                     </div>
                 </div>
@@ -7438,6 +7435,8 @@ var wlc = function (n, t, i) {
 <script type="text/javascript" data-rms="1" src="./index_files/f1d86b5a.js.下载"></script>
 <script type="text/javascript" data-rms="1">//<![CDATA[
 (function () {
+    alert(${site});
+    alert(${site.size()});
     function n() {
         var n = _ge("id_p"), t, i;
         n && (t = "", i = "", n.dataset ? (t = n.dataset.src, i = n.dataset.alt) : (t = n.getAttribute("data-src"), i = n.getAttribute("data-alt")), t && t != "" && (n.onerror = function () {
