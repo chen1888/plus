@@ -1,8 +1,11 @@
 package com.ibeetl.admin.core.mapper;
 
 import com.ibeetl.admin.core.web.vo.SearchItem;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface SearchItemMapper {
@@ -20,6 +23,20 @@ public interface SearchItemMapper {
      *
      * @mbg.generated Wed Nov 21 13:38:11 CST 2018
      */
+    @Insert("insert into search_item (id, site_id, base_uri, \n" +
+            "      book_item, book_item_ex, book_picture, \n" +
+            "      book_picture_ex, book_name, book_name_ex, \n" +
+            "      book_author, book_author_ex, book_intro, \n" +
+            "      book_intro_ex, book_update, book_update_ex, \n" +
+            "      book_words, book_words_ex, update_time, \n" +
+            "      create_time)\n" +
+            "    values (#{id,jdbcType=INTEGER}, #{siteId,jdbcType=INTEGER}, #{baseUri,jdbcType=VARCHAR}, \n" +
+            "      #{bookItem,jdbcType=VARCHAR}, #{bookItemEx,jdbcType=VARCHAR}, #{bookPicture,jdbcType=VARCHAR}, \n" +
+            "      #{bookPictureEx,jdbcType=VARCHAR}, #{bookName,jdbcType=VARCHAR}, #{bookNameEx,jdbcType=VARCHAR}, \n" +
+            "      #{bookAuthor,jdbcType=VARCHAR}, #{bookAuthorEx,jdbcType=VARCHAR}, #{bookIntro,jdbcType=VARCHAR}, \n" +
+            "      #{bookIntroEx,jdbcType=VARCHAR}, #{bookUpdate,jdbcType=VARCHAR}, #{bookUpdateEx,jdbcType=VARCHAR}, \n" +
+            "      #{bookWords,jdbcType=VARCHAR}, #{bookWordsEx,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, \n" +
+            "      #{createTime,jdbcType=TIMESTAMP})")
     int insert(SearchItem record);
 
     /**
@@ -49,5 +66,13 @@ public interface SearchItemMapper {
 
     @Select("SELECT * FROM search_item WHERE site_id = #{siteId}")
     List<SearchItem> findBySiteId(Integer siteId);
+
+    @Delete({"<script>"
+            ,"delete from search_item where 1=1 and id in "
+            ,"<foreach collection='list'  item='id' open='(' separator=',' close=')'  >"
+            ,"#{id}"
+            ,"</foreach>"
+            ,"</script>"})
+    public int deleteItem(List<Integer> ids) throws SQLException;
 
 }

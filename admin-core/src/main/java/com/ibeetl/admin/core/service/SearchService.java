@@ -59,24 +59,6 @@ public class SearchService{
     }
 
 
-    public void save(SearchItem searchItem){
-        searchItem.setSiteId(1);
-        searchItem.setBaseUri("http:");
-        searchItem.setBookItem(".res-book-item");
-        searchItem.setBookPicture(".book-img-box img[src]");
-        searchItem.setBookPictureEx("src");
-        searchItem.setBookName(".book-mid-info h4");
-        searchItem.setBookIntro(".book-mid-info .intro");
-        searchItem.setBookUpdate(".book-mid-info .update a");
-        searchItem.setBookWords(".book-right-info .total p");
-        searchItem.setBookAuthor(".book-mid-info a.name");
-        searchItem.setBookWordsEx("总字数");
-        searchItem.setCreateTime(new Date());
-        searchItem.setUpdateTime(new Date());
-        searchItemMapper.insert(searchItem);
-
-    }
-
 
     public List<SearchSite> findSiteList(SearchSiteQuery query){
         Integer pageSize = (int)query.getPageQuery().getPageSize();
@@ -114,9 +96,23 @@ public class SearchService{
         return 0;
     }
 
+    public Integer saveItem(SearchItem searchItem){
+        searchItem.setCreateTime(new Date());
+        searchItem.setUpdateTime(new Date());
+        return searchItemMapper.insert(searchItem);
+    }
+
     public void batchDeleteSiteId(List<Integer> ids){
         try {
             searchSiteMapper.deleteSite(ids);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void batchDeleteItemId(List<Integer> ids){
+        try {
+            searchItemMapper.deleteItem(ids);
         } catch (SQLException e) {
             e.printStackTrace();
         }

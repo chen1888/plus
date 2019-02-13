@@ -124,16 +124,16 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 		initToolBar:function(){
 			toolbar = {
 					add : function() { //获取选中数据
-						var url = "/admin/search/site/add.do";
-						Common.openDlg(url,"网站配置>新增");
+						var url = "/admin/search/item/add.do";
+						Common.openDlg(url,"搜索结果配置>新增");
 					},
 					edit : function() { //获取选中数目
 						var data = Common.getOneFromTable(table,"siteTable");
 						if(data==null){
 							return ;
 						}
-						var url = "/admin/search/site/edit.do?id="+data.id;
-						Common.openDlg(url,"网站配置>编辑");
+						var url = "/admin/search/item/edit.do?id="+data.id;
+						Common.openDlg(url,"搜索结果配置>编辑");
 						
 					},
 					del : function() { 

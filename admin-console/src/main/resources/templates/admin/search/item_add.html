@@ -1,0 +1,156 @@
+<!--# layout("/common/layout.html",{"jsBase":"/js/admin/search/item/"}){ -->
+
+<form class="layui-form layui-form-pane" id="addForm">
+	<div class="layui-row">
+		<div class="layui-col-xs4">
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 150px;">网站</label>
+				<div class="layui-input-inline">
+					<input type="text" name="siteId"  lay-verify="required"
+						   placeholder="例如：GET" autocomplete="off" class="layui-input"
+						   value="">
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-xs4">
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 150px;">网站base路径</label>
+				<div class="layui-input-inline">
+					<input type="text" name="baseUri"  lay-verify="required"
+						   placeholder="例如：http:" autocomplete="off" class="layui-input"
+						   value="">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layui-row">
+		<div class="layui-col-xs4">
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 150px;">书籍单条结果</label>
+					<div class="layui-input-inline">
+					<input type="text" name="bookItem"  lay-verify="required"
+						placeholder="例如：.res-book-item" autocomplete="off" class="layui-input"
+						value="">
+					</div>
+			</div>
+		</div>
+		<div class="layui-col-xs4">
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 150px;">书籍单条结果过滤</label>
+				<div class="layui-input-inline">
+				<input type="text" name="bookItemEx" autocomplete="off" class="layui-input"
+					value="">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layui-row">
+		<div class="layui-col-xs4">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label" style="width: 150px;">书籍封面图片地址</label>
+					<div class="layui-input-inline">
+						<input type="text" name="bookPicture"  lay-verify="required"
+							   placeholder="例如：.book-img-box img[src]" autocomplete="off" class="layui-input"
+							   value="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-xs4">
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 150px;">书籍封面图片地址过滤</label>
+				<div class="layui-input-inline">
+					<input type="text" name="bookPictureEx"  autocomplete="off" class="layui-input"
+						   value="">
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="layui-row">
+		<div class="layui-col-xs4">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label" style="width: 150px;">书籍名</label>
+					<div class="layui-input-inline">
+						<input type="text" name="bookName"  lay-verify="required"
+							   placeholder="例如：.book-mid-info h4" autocomplete="off" class="layui-input"
+							   value="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-xs4">
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 150px;">书籍名过滤</label>
+				<div class="layui-input-inline">
+					<input type="text" name="bookNameEx"  autocomplete="off" class="layui-input"
+						   value="">
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="layui-row">
+		<div class="layui-col-xs4">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label" style="width: 150px;">作者</label>
+					<div class="layui-input-inline">
+						<input type="text" name="bookAuthor"  lay-verify="required"
+							   placeholder="例如：.book-mid-info .author" autocomplete="off" class="layui-input"
+							   value="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-xs4">
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 150px;">作者过滤</label>
+				<div class="layui-input-inline">
+					<input type="text" name="bookAuthorEx"  autocomplete="off" class="layui-input"
+						   value="">
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="layui-row">
+		<div class="layui-col-xs4">
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label" style="width: 150px;">简介</label>
+					<div class="layui-input-inline">
+						<input type="text" name="bookIntro"  lay-verify="required"
+							   placeholder="例如：.book-mid-info .intro" autocomplete="off" class="layui-input"
+							   value="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-xs4">
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 150px;">简介过滤</label>
+				<div class="layui-input-inline">
+					<input type="text" name="bookIntroEx" autocomplete="off" class="layui-input"
+						   value="">
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	
+	
+	<layui:submitButtons id="saveMenu" />
+</form>
+<!--#} -->
+<script>
+layui.use(['add'], function(){
+  var menuAdd = layui.add
+  menuAdd.init();
+});
+
+</script>
+

@@ -46,14 +46,6 @@ public class SearchController {
         return result;
 
     }
-    @RequestMapping(MODEL2 + "/save")
-    public @ResponseBody Result save(SearchItem searchItem){
-        Result result = new Result();
-        searchService.save(searchItem);
-        return result;
-
-    }
-
 
     @GetMapping(MODEL2 + "/add.do")
     public ModelAndView add() {
@@ -105,6 +97,12 @@ public class SearchController {
         return view;
     }
 
+    @GetMapping(MODEL2 + "/item/add.do")
+    public ModelAndView itemAdd() {
+        ModelAndView view = new ModelAndView("/admin/search/item_add.html");
+        return view;
+    }
+
     @GetMapping(MODEL2 + "/site/edit.do")
     public ModelAndView siteEdit(Integer id) {
         ModelAndView view = new ModelAndView("/admin/search/site_edit.html");
@@ -121,9 +119,24 @@ public class SearchController {
         return JsonResult.success(id);
     }
 
+    @PostMapping(MODEL2 + "/item/save.json")
+    @ResponseBody
+    public JsonResult saveItem(@Validated SearchItem searchItem) {
+        Integer id = searchService.saveItem(searchItem);
+        return JsonResult.success(id);
+    }
+
     @PostMapping(MODEL2 + "/site/batchDel.json")
     @ResponseBody
     public JsonResult deleteSite(String ids) {
+        List<Integer> dels = ConvertUtil.str2Int(ids);
+        searchService.batchDeleteSiteId(dels);
+        return new JsonResult().success();
+    }
+
+    @PostMapping(MODEL2 + "/item/batchDel.json")
+    @ResponseBody
+    public JsonResult deleteItem(String ids) {
         List<Integer> dels = ConvertUtil.str2Int(ids);
         searchService.batchDeleteSiteId(dels);
         return new JsonResult().success();
