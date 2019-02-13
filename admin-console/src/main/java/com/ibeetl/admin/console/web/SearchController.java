@@ -138,7 +138,7 @@ public class SearchController {
     @ResponseBody
     public JsonResult deleteItem(String ids) {
         List<Integer> dels = ConvertUtil.str2Int(ids);
-        searchService.batchDeleteSiteId(dels);
+        searchService.batchDeleteItemId(dels);
         return new JsonResult().success();
     }
     /**
