@@ -1,9 +1,12 @@
 package com.ibeetl.admin.core.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.ibeetl.admin.core.mapper.SearchItemMapper;
 import com.ibeetl.admin.core.mapper.SearchSiteMapper;
 import com.ibeetl.admin.core.util.HtmlUtil;
 import com.ibeetl.admin.core.util.HttpUtils;
+import com.ibeetl.admin.core.web.query.SearchItemQuery;
 import com.ibeetl.admin.core.web.query.SearchSiteQuery;
 import com.ibeetl.admin.core.web.vo.SearchItem;
 import com.ibeetl.admin.core.web.vo.SearchItemResut;
@@ -79,6 +82,16 @@ public class SearchService{
         Integer pageSize = (int)query.getPageQuery().getPageSize();
         Integer start = ((int)query.getPageQuery().getPageNumber()-1)*pageSize;
         return searchSiteMapper.findPageList(query.getWebsite(),start,pageSize);
+    }
+    public PageInfo<SearchItem> findItemList(SearchItemQuery query){
+        PageHelper.startPage((int)query.getPageQuery().getPageNumber(),(int)query.getPageQuery().getPageSize());
+        List<SearchItem> searchItems = null;
+        if(null == query.getSiteId()){
+             searchItems = searchItemMapper.selectAll();
+        }else {
+             searchItems = searchItemMapper.findBySiteId(query.getSiteId());
+        }
+        return new PageInfo<>(searchItems);
     }
 
     public Integer count(){

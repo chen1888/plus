@@ -36,6 +36,7 @@ public interface SearchItemMapper {
      *
      * @mbg.generated Wed Nov 21 13:38:11 CST 2018
      */
+    @Select("SELECT * FROM search_item")
     List<SearchItem> selectAll();
 
     /**
@@ -48,4 +49,5 @@ public interface SearchItemMapper {
 
     @Select("SELECT * FROM search_item WHERE site_id = #{siteId}")
     List<SearchItem> findBySiteId(Integer siteId);
+
 }

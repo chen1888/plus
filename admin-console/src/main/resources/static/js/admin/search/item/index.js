@@ -40,65 +40,65 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 					width : 80,
 					sort : true
 				}, {
-					field : 'base_uri',
+					field : 'baseUri',
 					title : '网站base路径',
 					width : 140,
 					sort : true
 				}, {
-					field : 'book_item',
+					field : 'bookItem',
 					title : '书籍单条结果',
 					width : 140,
 					sort : true
 				}, {
-					field : 'book_item_ex',
+					field : 'bookItemEx',
 					title : '书籍单条结果过滤',
 					width : 150,
 					sort : true
 				},
 				 {
-					field : 'book_picture',
+					field : 'bookPicture',
 					title : '书籍封面图片地址',
 					width : 140,
 					sort : true
 				},
 				 {
-					field : 'book_picture_ex',
+					field : 'bookPictureEx',
 					title : '书籍封面图片地址过滤',
 					width : 150,
 					sort : true
 				},
 				{
-					field : 'book_name',
+					field : 'bookName',
 					title : '书籍名',
 					width : 140,
 					sort : true
 				},
 				{
-					field : 'book_name_ex',
+					field : 'bookNameEx',
 					title : '书籍名过滤',
 					width : 150,
 					sort : true
 				},
 				{
-					field : 'book_author',
+					field : 'bookAuthor',
 					title : '作者',
 					width : 150,
 					sort : true
 				},
 				{
-					field : 'book_author_ex',
+					field : 'bookAuthorEx',
 					title : '作者过滤',
 					width : 150,
 					sort : true
 				},
 				{
-					field : 'book_intro',
+					field : 'bookIntro',
 					title : '简介',
 					width : 150,
 					sort : true
 				},
 				{
-					field : 'book_intro_ex',
+					field : 'bookIntroEx',
 					title : '简介过滤',
 					width : 150,
 					sort : true

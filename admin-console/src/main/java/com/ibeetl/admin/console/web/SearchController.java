@@ -1,6 +1,8 @@
 package com.ibeetl.admin.console.web;
 
+import com.github.pagehelper.PageInfo;
 import com.ibeetl.admin.core.service.SearchService;
+import com.ibeetl.admin.core.web.query.SearchItemQuery;
 import com.ibeetl.admin.core.web.query.SearchSiteQuery;
 import com.ibeetl.admin.core.util.ConvertUtil;
 import com.ibeetl.admin.core.web.JsonResult;
@@ -71,6 +73,16 @@ public class SearchController {
         ModelAndView view = new ModelAndView("/admin/search/item_index.html");
         view.addObject("search", SearchSiteQuery.class.getName());
         return view;
+    }
+
+    @PostMapping(MODEL2 + "/item/list.json")
+    @ResponseBody
+    public JsonResult<PageQuery<SearchSite>> itemList(SearchItemQuery query) {
+        PageInfo<SearchItem> itemList = searchService.findItemList(query);
+        PageQuery<SearchSite> page = query.getPageQuery();
+        page.setTotalRow(itemList.getTotal());
+        page.setList(itemList.getList());
+        return JsonResult.success(page);
     }
 
     @PostMapping(MODEL2 + "/site/list.json")
