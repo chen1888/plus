@@ -1,6 +1,6 @@
 <!--# layout("/common/layout.html",{"jsBase":"/js/admin/search/item/"}){ -->
 
-<form class="layui-form layui-form-pane" id="addForm">
+<form class="layui-form layui-form-pane" id="updateForm">
 	<div class="layui-row">
 		<div class="layui-col-xs4">
 			<div class="layui-form-item">
@@ -168,6 +168,7 @@
 
 
 	<layui:submitButtons id="savesearchSite" />
+	<input type="hidden" name="id" value=${searchItem.id} />
 </form>
 <!--#} -->
 <script>

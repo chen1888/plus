@@ -159,6 +159,13 @@ public class SearchController {
         return new JsonResult().success();
     }
 
+    @PostMapping(MODEL2 + "/item/update.json")
+    @ResponseBody
+    public JsonResult update(SearchItem searchItem) {
+        searchService.updateItemById(searchItem);
+        return new JsonResult().success();
+    }
+
 
 
 

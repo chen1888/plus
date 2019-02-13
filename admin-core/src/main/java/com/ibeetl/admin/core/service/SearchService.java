@@ -137,6 +137,11 @@ public class SearchService{
         searchSiteMapper.updateByPrimaryKey(searchSite);
     }
 
+    public void updateItemById(SearchItem searchItem){
+        searchItem.setUpdateTime(new Date());
+        searchItemMapper.updateByPrimaryKey(searchItem);
+    }
+
 
     public List<SearchSite> findAllSite(){
         return searchSiteMapper.selectAll();

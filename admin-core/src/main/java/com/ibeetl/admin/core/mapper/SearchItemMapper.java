@@ -4,6 +4,7 @@ import com.ibeetl.admin.core.web.vo.SearchItem;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -63,6 +64,26 @@ public interface SearchItemMapper {
      *
      * @mbg.generated Wed Nov 21 13:38:11 CST 2018
      */
+    @Update("update search_item\n" +
+            "    set site_id = #{siteId,jdbcType=INTEGER},\n" +
+            "      base_uri = #{baseUri,jdbcType=VARCHAR},\n" +
+            "      book_item = #{bookItem,jdbcType=VARCHAR},\n" +
+            "      book_item_ex = #{bookItemEx,jdbcType=VARCHAR},\n" +
+            "      book_picture = #{bookPicture,jdbcType=VARCHAR},\n" +
+            "      book_picture_ex = #{bookPictureEx,jdbcType=VARCHAR},\n" +
+            "      book_name = #{bookName,jdbcType=VARCHAR},\n" +
+            "      book_name_ex = #{bookNameEx,jdbcType=VARCHAR},\n" +
+            "      book_author = #{bookAuthor,jdbcType=VARCHAR},\n" +
+            "      book_author_ex = #{bookAuthorEx,jdbcType=VARCHAR},\n" +
+            "      book_intro = #{bookIntro,jdbcType=VARCHAR},\n" +
+            "      book_intro_ex = #{bookIntroEx,jdbcType=VARCHAR},\n" +
+            "      book_update = #{bookUpdate,jdbcType=VARCHAR},\n" +
+            "      book_update_ex = #{bookUpdateEx,jdbcType=VARCHAR},\n" +
+            "      book_words = #{bookWords,jdbcType=VARCHAR},\n" +
+            "      book_words_ex = #{bookWordsEx,jdbcType=VARCHAR},\n" +
+            "      update_time = #{updateTime,jdbcType=TIMESTAMP},\n" +
+            "      create_time = #{createTime,jdbcType=TIMESTAMP}\n" +
+            "    where id = #{id,jdbcType=INTEGER}")
     int updateByPrimaryKey(SearchItem record);
 
     @Select("SELECT * FROM search_item WHERE site_id = #{siteId}")
