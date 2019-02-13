@@ -21,6 +21,15 @@ public class SearchItem implements Serializable {
      * @mbg.generated Wed Nov 21 13:38:11 CST 2018
      */
     private Integer siteId;
+    private String webSite;
+
+    public String getWebSite() {
+        return webSite;
+    }
+
+    public void setWebSite(String webSite) {
+        this.webSite = webSite;
+    }
 
     /**
      *

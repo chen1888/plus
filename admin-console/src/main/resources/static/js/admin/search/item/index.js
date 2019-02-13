@@ -3,9 +3,9 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 	var laydate = layui.laydate;
 	var table = layui.table;
 	var siteTable = null;
-	
+
 	var view ={
-		
+
 		init:function(){
 			this.initTable();
 			this.initSearchForm();
@@ -13,8 +13,8 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 			window.dataReload = function(){
 				Lib.doSearchForm($("#searchForm"),siteTable)
 			}
-			
-			
+
+
 		},
 		initTable:function(){
 			siteTable = table.render({
@@ -104,12 +104,15 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 					sort : true
 				},
 				{
-					field : 'updateTime',
-					title : '修改时间',
+					field : 'bookUpdate',
+					title : '更新时间',
 					width : 120,
-					templet:function(d){
-						return Common.getDate(d.createTime);
-					},
+					sort : true
+				},
+				{
+					field : 'bookUpdateEx',
+					title : '更新时间过滤',
+					width : 120,
 					sort : true
 				}
 
@@ -117,7 +120,7 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 
 			});
 		},
-		
+
 		initSearchForm:function(){
 			Lib.initSearchForm( $("#searchForm"),siteTable,form);
 		},
@@ -134,9 +137,9 @@ layui.define([ 'form', 'laydate', 'table' ], function(exports) {
 						}
 						var url = "/admin/search/item/edit.do?id="+data.id;
 						Common.openDlg(url,"搜索结果配置>编辑");
-						
+
 					},
-					del : function() { 
+					del : function() {
 						layui.use(['del'], function(){
 							  var delView = layui.del
 							  delView.delBatch();

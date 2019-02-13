@@ -33,8 +33,6 @@ public class SearchController {
     private static final String MODEL1 = "/search";
     private static final String MODEL2 = "/admin/search";
 
-    private long count = 0;
-
     @Autowired
     private SearchService searchService;
 
@@ -108,6 +106,14 @@ public class SearchController {
         ModelAndView view = new ModelAndView("/admin/search/site_edit.html");
         SearchSite searchSite = searchService.findSiteById(id);
         view.addObject("searchSite", searchSite);
+        return view;
+    }
+
+    @GetMapping(MODEL2 + "/item/edit.do")
+    public ModelAndView itemEdit(Integer id) {
+        ModelAndView view = new ModelAndView("/admin/search/item_edit.html");
+        SearchItem searchItem = searchService.findItemById(id);
+        view.addObject("searchItem", searchItem);
         return view;
     }
 

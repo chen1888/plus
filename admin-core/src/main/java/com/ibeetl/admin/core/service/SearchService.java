@@ -123,6 +123,15 @@ public class SearchService{
         return searchSiteMapper.selectByPrimaryKey(id);
     }
 
+    public SearchItem findItemById(Integer id){
+        SearchItem searchItem = searchItemMapper.selectByPrimaryKey(id);
+        SearchSite site = findSiteById(searchItem.getSiteId());
+        if(site!=null){
+            searchItem.setWebSite(site.getWebsite());
+        }
+        return searchItem;
+    }
+
     public void updateSiteById(SearchSite searchSite){
         searchSite.setUpdateTime(new Date());
         searchSiteMapper.updateByPrimaryKey(searchSite);

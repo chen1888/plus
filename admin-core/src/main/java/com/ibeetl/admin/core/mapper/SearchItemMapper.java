@@ -45,6 +45,7 @@ public interface SearchItemMapper {
      *
      * @mbg.generated Wed Nov 21 13:38:11 CST 2018
      */
+    @Select("select * from search_item where id=#{id}")
     SearchItem selectByPrimaryKey(Integer id);
 
     /**

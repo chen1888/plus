@@ -8,7 +8,7 @@
 				<div class="layui-input-inline">
 					<input type="text" name="siteId"  lay-verify="required"
 						   placeholder="GET" autocomplete="off" class="layui-input"
-						   value="">
+						   value="${searchItem.webSite}">
 				</div>
 			</div>
 		</div>
@@ -18,7 +18,7 @@
 				<div class="layui-input-inline">
 					<input type="text" name="baseUri"  lay-verify="required"
 						   placeholder="http:" autocomplete="off" class="layui-input"
-						   value="">
+						   value="${searchItem.baseUri}">
 				</div>
 			</div>
 		</div>
@@ -27,19 +27,19 @@
 		<div class="layui-col-xs4">
 			<div class="layui-form-item">
 				<label class="layui-form-label" style="width: 150px;">书籍单条结果</label>
-					<div class="layui-input-inline">
+				<div class="layui-input-inline">
 					<input type="text" name="bookItem"  lay-verify="required"
-						placeholder=".res-book-item" autocomplete="off" class="layui-input"
-						value="">
-					</div>
+						   placeholder=".res-book-item" autocomplete="off" class="layui-input"
+						   value="${searchItem.bookItem}">
+				</div>
 			</div>
 		</div>
 		<div class="layui-col-xs4">
 			<div class="layui-form-item">
 				<label class="layui-form-label" style="width: 150px;">书籍单条结果过滤</label>
 				<div class="layui-input-inline">
-				<input type="text" name="bookItemEx" autocomplete="off" class="layui-input"
-					value="">
+					<input type="text" name="bookItemEx" autocomplete="off" class="layui-input"
+						   value="${searchItem.bookItemEx}">
 				</div>
 			</div>
 		</div>
@@ -52,7 +52,7 @@
 					<div class="layui-input-inline">
 						<input type="text" name="bookPicture"  lay-verify="required"
 							   placeholder=".book-img-box img[src]" autocomplete="off" class="layui-input"
-							   value="">
+							   value="${searchItem.bookPicture}">
 					</div>
 				</div>
 			</div>
@@ -62,7 +62,7 @@
 				<label class="layui-form-label" style="width: 150px;">书籍封面图片地址过滤</label>
 				<div class="layui-input-inline">
 					<input type="text" name="bookPictureEx"  autocomplete="off" class="layui-input"
-						   value="">
+						   value="${searchItem.bookPictureEx}">
 				</div>
 			</div>
 		</div>
@@ -76,7 +76,7 @@
 					<div class="layui-input-inline">
 						<input type="text" name="bookName"  lay-verify="required"
 							   placeholder=".book-mid-info h4" autocomplete="off" class="layui-input"
-							   value="">
+							   value="${searchItem.bookName}">
 					</div>
 				</div>
 			</div>
@@ -86,7 +86,7 @@
 				<label class="layui-form-label" style="width: 150px;">书籍名过滤</label>
 				<div class="layui-input-inline">
 					<input type="text" name="bookNameEx"  autocomplete="off" class="layui-input"
-						   value="">
+						   value="${searchItem.bookNameEx}">
 				</div>
 			</div>
 		</div>
@@ -100,7 +100,7 @@
 					<div class="layui-input-inline">
 						<input type="text" name="bookAuthor"  lay-verify="required"
 							   placeholder=".book-mid-info .author" autocomplete="off" class="layui-input"
-							   value="">
+							   value="${searchItem.bookAuthor}">
 					</div>
 				</div>
 			</div>
@@ -110,7 +110,7 @@
 				<label class="layui-form-label" style="width: 150px;">作者过滤</label>
 				<div class="layui-input-inline">
 					<input type="text" name="bookAuthorEx"  autocomplete="off" class="layui-input"
-						   value="">
+						   value="${searchItem.bookAuthorEx}">
 				</div>
 			</div>
 		</div>
@@ -124,7 +124,7 @@
 					<div class="layui-input-inline">
 						<input type="text" name="bookIntro"  lay-verify="required"
 							   placeholder=".book-mid-info .intro" autocomplete="off" class="layui-input"
-							   value="">
+							   value="${searchItem.bookIntro}">
 					</div>
 				</div>
 			</div>
@@ -134,7 +134,7 @@
 				<label class="layui-form-label" style="width: 150px;">简介过滤</label>
 				<div class="layui-input-inline">
 					<input type="text" name="bookIntroEx" autocomplete="off" class="layui-input"
-						   value="">
+						   value="${searchItem.bookIntroEx}">
 				</div>
 			</div>
 		</div>
@@ -148,7 +148,7 @@
 					<div class="layui-input-inline">
 						<input type="text" name="bookUpdate"  lay-verify="required"
 							   placeholder=".book-mid-info .update a" autocomplete="off" class="layui-input"
-							   value="">
+							   value="${searchItem.bookUpdate}">
 					</div>
 				</div>
 			</div>
@@ -158,22 +158,22 @@
 				<label class="layui-form-label" style="width: 150px;">更新时间过滤</label>
 				<div class="layui-input-inline">
 					<input type="text" name="bookUpdateEx" autocomplete="off" class="layui-input"
-						   value="">
+						   value="${searchItem.bookUpdateEx}">
 				</div>
 			</div>
 		</div>
 
 	</div>
 
-	
-	
-	<layui:submitButtons id="saveMenu" />
+
+
+	<layui:submitButtons id="savesearchSite" />
 </form>
 <!--#} -->
 <script>
-layui.use(['add'], function(){
-  var menuAdd = layui.add
-  menuAdd.init();
+layui.use(['edit'], function(){
+  var searchSiteEdit = layui.edit
+  searchSiteEdit.init();
 });
 
 </script>
