@@ -54,6 +54,7 @@ public class HttpUtils {
                 ex.printStackTrace();
             }
         }
+        System.out.println(result);
         return result;
     }
 

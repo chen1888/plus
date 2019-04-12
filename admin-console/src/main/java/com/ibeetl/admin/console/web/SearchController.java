@@ -14,10 +14,7 @@ import org.beetl.sql.core.engine.PageQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -36,8 +33,8 @@ public class SearchController {
     @Autowired
     private SearchService searchService;
 
-    @RequestMapping(MODEL1 + "/test")
-    public @ResponseBody Result test(String keywords, String origin,String pageSize,String pageNum){
+    @RequestMapping(MODEL1 + "/{origin}")
+    public @ResponseBody Result test(@PathVariable("origin") String origin, String keywords, String pageSize, String pageNum){
         Result result = new Result();
         List<SearchItemResut> searchItemResuts = searchService.search(keywords,origin,pageSize,pageNum);
         result.setData(searchItemResuts);

@@ -61,17 +61,21 @@ public class HtmlUtil {
             //获取最新更新
             if(StringUtils.isNotBlank(searchItem.getBookUpdate())) {
                 Element element5 = element.selectFirst(searchItem.getBookUpdate());
-                String update = element5.text();
-                resut.setUpdate(update);
-                logger.info("最新更新========》{}", update);
+                if(element5!=null) {
+                    String update = element5.text();
+                    resut.setUpdate(update);
+                    logger.info("最新更新========》{}", update);
+                }
             }
 
             //获取字数
             if(StringUtils.isNotBlank(searchItem.getBookWords())){
                 Element element6 = element.selectFirst(searchItem.getBookWords());
-                String wordNum = element6.text().replaceAll(searchItem.getBookWordsEx(),"");
-                resut.setWordNum(wordNum);
-                logger.info("字数========》{}",wordNum);
+                if(element6!=null){
+                    String wordNum = element6.text().replaceAll(searchItem.getBookWordsEx(),"");
+                    resut.setWordNum(wordNum);
+                    logger.info("字数========》{}",wordNum);
+                }
             }
             resuts.add(resut);
 

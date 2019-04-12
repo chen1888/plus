@@ -42,10 +42,10 @@ public class SearchService{
         SearchSite site = sites.get(0);
         Map<String, String> params = new HashMap<>();
         params.put(site.getKeywords(), keywords);
-        if(StringUtils.isNotBlank(pageNum)){
+        if(StringUtils.isNotBlank(pageNum) && StringUtils.isNotBlank(site.getPagenum())){
             params.put(site.getPagenum(), pageNum);
         }
-        if(StringUtils.isNotBlank(pageSize)){
+        if(StringUtils.isNotBlank(pageSize) && StringUtils.isNotBlank(site.getPagesize())){
             params.put(site.getPagesize(),pageSize);
         }
         String result = HttpUtils.sendGet(site.getUrl(), params);
